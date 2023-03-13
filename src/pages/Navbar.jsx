@@ -22,14 +22,16 @@ const Navbar = () => {
             container
             fontFamily={'Poppins'}
         >
-            <Grid xs={6} md={1} >
+            <Grid xs={2} md={1} >
                 <ListItem>
                     <MenuIcon
-
+                        sx={{
+                            color: 'white'
+                        }}
                     />
                 </ListItem>
             </Grid>
-            <Grid xs={6} md={3}>
+            <Grid xs={8} md={3}>
                 <ListItem>
                     <Typography
                         sx={{
