@@ -1,4 +1,4 @@
-import { Box, Button, FormControl, FormControlLabel, FormLabel, Radio, RadioGroup, Typography } from '@mui/material'
+import { Box, Button, FormControl, FormControlLabel, FormLabel, InputLabel, MenuItem, Radio, RadioGroup, Select, TextField, Typography } from '@mui/material'
 import React from 'react'
 import { Controller, useForm } from 'react-hook-form';
 
@@ -6,13 +6,12 @@ const FormInput = () => {
 
     const defaultValues = {
         name: '',
-        status: ''
+        status: '',
+        age: ''
     }
 
     const {
         control,
-        setValue,
-        register,
         handleSubmit,
     } = useForm({ defaultValues })
 
@@ -52,6 +51,7 @@ const FormInput = () => {
                     border: 1,
                     borderColor: 'grey.300',
                     borderRadius: '8px',
+                    gap: '20px'
                 }}>
                 <Controller
                     name='status'
@@ -82,25 +82,36 @@ const FormInput = () => {
                     rules={{ required: true }}
                     render={({ field: { name, value, onChange } }) => (
                         <>
-                            <label htmlFor='nama'>Input Nama</label>
-                            <input
-                                style={{
-                                    width: '150px',
-                                    paddingTop: '5px',
-                                    paddingBottom: '5px',
-                                    border: '2px solid',
-                                    borderRadius: '5px'
-                                }}
-                                type='text'
-                                placeholder='isi nama...'
-                                name={name}
-                                value={value}
-                                onChange={onChange}
-                            />
+                            <FormLabel htmlFor='nama'>Input Nama</FormLabel>
+                            <TextField name={name} value={value} onChange={onChange} placeholder="Masukkan nama" />
 
                         </>
                     )}
                 />
+
+                <FormControl fullWidth>
+                    <InputLabel id="demo-simple-select-label">Age</InputLabel>
+                    <Controller
+                        name='age'
+                        control={control}
+                        render={({ field: { name, value, onChange } }) => (
+                            <>
+                                <Select
+                                    name={name}
+                                    labelId="demo-simple-select-label"
+                                    id="demo-simple-select"
+                                    value={value}
+                                    label="Age"
+                                    onChange={onChange}
+                                >
+                                    <MenuItem value={10}>Ten</MenuItem>
+                                    <MenuItem value={20}>Twenty</MenuItem>
+                                    <MenuItem value={30}>Thirty</MenuItem>
+                                </Select>
+                            </>
+                        )}
+                    />
+                </FormControl>
                 <Button
                     type='submit'
                     variant='contained'
