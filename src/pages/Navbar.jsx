@@ -22,7 +22,7 @@ const Navbar = () => {
             container
             fontFamily={'Poppins'}
         >
-            <Grid xs={2} md={1} >
+            <Grid item xs={2} md={1} >
                 <ListItem>
                     <MenuIcon
                         sx={{
@@ -31,7 +31,7 @@ const Navbar = () => {
                     />
                 </ListItem>
             </Grid>
-            <Grid xs={8} md={3}>
+            <Grid item xs={8} md={3}>
                 <ListItem>
                     <Typography
                         sx={{
@@ -41,7 +41,7 @@ const Navbar = () => {
                         MUDIK SEHAT BERSAMA BUMN</Typography>
                 </ListItem>
             </Grid>
-        </GridBase >
+        </GridBase  >
     )
 }
 
